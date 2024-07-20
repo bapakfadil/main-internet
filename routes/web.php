@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\VoucherController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\TransactionController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,3 +27,5 @@ route::get('/customer/tambah-data',[CustomerController::class,'tambah'])->name('
 
 // Voucher
 route::get('/voucher',[VoucherController::class,'index'])->name('voucher');
+
+Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions.index');
