@@ -22,8 +22,9 @@ route::post('/register',[RegisterController::class,'store'])->name('register.sto
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Menu customer
-route::get('/customer',[CustomerController::class,'index'])->name('customer');
-route::get('/customer/tambah-data',[CustomerController::class,'tambah'])->name('customer.tambah');
+Route::get('/customer', [CustomerController::class, 'index'])->name('customer')->middleware('admin');
+Route::get('/customer/tambah-data', [CustomerController::class, 'tambah'])->name('customer.tambah')->middleware('admin');
+Route::post('/customer', [CustomerController::class, 'store'])->name('customer.store')->middleware('admin');
 
 // Voucher
 route::get('/voucher',[VoucherController::class,'index'])->name('voucher');
