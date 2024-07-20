@@ -3,20 +3,25 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\VoucherController;
 use App\Http\Controllers\CustomerController;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 route::get('/dashboard', [HomeController::class,'index'])->name('dashboard');
-//auth
+
+// Auth
 route::get('/login',[LoginController::class,'index'])->name('login');
-route::get('/register',[LoginController::class,'register'])->name('register');
-//menu customer
+route::post('/login',[LoginController::class,'authenticate'])->name('login.authenticate');
+route::get('/register',[RegisterController::class,'index'])->name('register');
+route::post('/register',[RegisterController::class,'store'])->name('register.store');
+
+// Menu customer
 route::get('/customer',[CustomerController::class,'index'])->name('customer');
 route::get('/customer/tambah-data',[CustomerController::class,'tambah'])->name('customer.tambah');
-//voucher
+
+// Voucher
 route::get('/voucher',[VoucherController::class,'index'])->name('voucher');
