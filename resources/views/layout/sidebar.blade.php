@@ -9,7 +9,7 @@
     <div class="navbar-content">
       <ul class="pc-navbar">
         <li class="pc-item pc-caption">
-          <i class="ti ti-news"></i>
+          <i class="ti ti-news"></i> <span>Menu</span>
         </li>
         <li class="pc-item">
           <a href="{{ route('dashboard') }}" class="pc-link">
@@ -18,27 +18,33 @@
           </a>
         </li>
         <li class="pc-item">
+          <a href="{{ route('transactions.index') }}" class="pc-link">
+            <span class="pc-micon"><i class="ti ti-receipt"></i></span>
+            <span class="pc-mtext">Riwayat Pembelian</span>
+          </a>
+        </li>
+        <li class="pc-item">
+          <a href="{{ route('admin.transactions.index') }}" class="pc-link">
+            <span class="pc-micon"><i class="ti ti-clipboard-check"></i></span>
+            <span class="pc-mtext">Konfirmasi Pembayaran</span>
+          </a>
+        </li>
+        <li class="pc-item">
           <a href="{{ route('customer') }}" class="pc-link">
-            <span class="pc-micon"><i class="ti ti-file-text"></i></span>
+            <span class="pc-micon"><i class="ti ti-users"></i></span>
             <span class="pc-mtext">Data Customer</span>
           </a>
         </li>
         <li class="pc-item">
           <a href="{{ route('customer.tambah') }}" class="pc-link">
-            <span class="pc-micon"><i class="ti ti-file-text"></i></span>
+            <span class="pc-micon"><i class="ti ti-user-plus"></i></span>
             <span class="pc-mtext">Form Pendaftaran</span>
           </a>
         </li>
         <li class="pc-item">
           <a href="{{ route('voucher') }}" class="pc-link">
-            <span class="pc-micon"><i class="ti ti-device-analytics"></i></span>
+            <span class="pc-micon"><i class="ti ti-wallet"></i></span>
             <span class="pc-mtext">Billing Voucher</span>
-          </a>
-        </li>
-        <li class="pc-item">
-          <a href="#" class="pc-link">
-            <span class="pc-micon"><i class="ti ti-tool"></i></span>
-            <span class="pc-mtext">Pengaturan</span>
           </a>
         </li>
       </ul>

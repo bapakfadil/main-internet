@@ -4,34 +4,66 @@
 
 <div class="pc-container">
     <div class="pc-content">
-        <h1>Riwayat Pembelian Voucher</h1>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#buyVoucherModal">
-            Beli Voucher
-        </button>
-        <table class="table table-striped mt-4">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Invoice</th>
-                    <th>Status</th>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Masa Aktif</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($transactions as $transaction)
-                    <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $transaction->invoice }}</td>
-                        <td>{{ $transaction->status }}</td>
-                        <td>{{ $transaction->username ?? 'N/A' }}</td>
-                        <td>{{ $transaction->password ?? 'N/A' }}</td>
-                        <td>{{ $transaction->voucher_duration }}</td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
+      <!-- [ breadcrumb ] start -->
+      <div class="page-header">
+        <div class="page-block">
+          <div class="row align-items-center">
+            <div class="col-md-12">
+              <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                <li class="breadcrumb-item" aria-current="page">Riwayat Pembelian Voucher</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- [ breadcrumb ] end -->
+
+      <!-- [ Main Content ] start -->
+      <div class="row">
+        <!-- [ sample-page ] start -->
+        <div class="col-sm-12">
+          <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#buyVoucherModal">
+                            Beli Voucher
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped table-hover" id="table1">
+                    <thead class="fs-4">
+                        <tr class="text-center">
+                            <th>No</th>
+                            <th>Invoice</th>
+                            <th>Status</th>
+                            <th>Username</th>
+                            <th>Password</th>
+                            <th>Masa Aktif</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($transactions as $transaction)
+                            <tr class="text-center">
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $transaction->invoice }}</td>
+                                <td>{{ $transaction->status }}</td>
+                                <td>{{ $transaction->username ?? 'N/A' }}</td>
+                                <td>{{ $transaction->password ?? 'N/A' }}</td>
+                                <td>{{ $transaction->voucher_duration }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+          </div>
+        </div>
+        <!-- [ sample-page ] end -->
+      </div>
+      <!-- [ Main Content ] end -->
     </div>
 </div>
 
