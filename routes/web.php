@@ -30,3 +30,6 @@ route::get('/voucher',[VoucherController::class,'index'])->name('voucher');
 
 Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions.index');
 Route::post('/transactions', [TransactionController::class, 'store'])->name('transactions.store');
+Route::get('/admin/transactions', [TransactionController::class, 'adminIndex'])->name('admin.transactions.index');
+Route::post('/admin/transactions/{transaction}/confirm', [TransactionController::class, 'confirm'])->name('admin.transactions.confirm');
+Route::post('/admin/transactions/{transaction}/reject', [TransactionController::class, 'reject'])->name('admin.transactions.reject');
