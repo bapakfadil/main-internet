@@ -23,30 +23,20 @@
             <span class="pc-mtext">Riwayat Pembelian</span>
           </a>
         </li>
-        <li class="pc-item">
-          <a href="{{ route('admin.transactions.index') }}" class="pc-link">
-            <span class="pc-micon"><i class="ti ti-clipboard-check"></i></span>
-            <span class="pc-mtext">Konfirmasi Pembayaran</span>
-          </a>
-        </li>
-        <li class="pc-item">
-          <a href="{{ route('customer') }}" class="pc-link">
-            <span class="pc-micon"><i class="ti ti-users"></i></span>
-            <span class="pc-mtext">Data Customer</span>
-          </a>
-        </li>
-        <li class="pc-item">
-          <a href="{{ route('customer.tambah') }}" class="pc-link">
-            <span class="pc-micon"><i class="ti ti-user-plus"></i></span>
-            <span class="pc-mtext">Form Pendaftaran</span>
-          </a>
-        </li>
-        <li class="pc-item">
-          <a href="{{ route('voucher') }}" class="pc-link">
-            <span class="pc-micon"><i class="ti ti-wallet"></i></span>
-            <span class="pc-mtext">Billing Voucher</span>
-          </a>
-        </li>
+        @if (Auth::user() && Auth::user()->role == 'admin')
+          <li class="pc-item">
+            <a href="{{ route('customer') }}" class="pc-link">
+              <span class="pc-micon"><i class="ti ti-users"></i></span>
+              <span class="pc-mtext">Data Customer</span>
+            </a>
+          </li>
+          <li class="pc-item">
+            <a href="{{ route('customer.tambah') }}" class="pc-link">
+              <span class="pc-micon"><i class="ti ti-user-plus"></i></span>
+              <span class="pc-mtext">Form Pendaftaran</span>
+            </a>
+          </li>
+        @endif
       </ul>
     </div>
   </div>

@@ -48,18 +48,10 @@
           </a>
           <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown">
             <div class="dropdown-header">
-              <h4>Good Morning, <span class="small text-muted"> John Doe</span></h4>
-              <p class="text-muted">Project Admin</p>
+              <h4>Good Morning, <span class="small text-muted">{{ Auth::user()->name }}</span></h4>
+              <p class="text-muted">{{ ucfirst(Auth::user()->role) }}</p>
               <hr >
               <div class="profile-notification-scroll position-relative" style="max-height: calc(100vh - 280px)">
-                <a href="../application/account-profile-v1.html" class="dropdown-item">
-                  <i class="ti ti-settings"></i>
-                  <span>Account Settings</span>
-                </a>
-                <a href="../application/social-profile.html" class="dropdown-item">
-                  <i class="ti ti-user"></i>
-                  <span>Social Profile</span>
-                </a>
                 <form method="POST" action="{{ route('logout') }}">
                   @csrf
                   <button type="submit" class="dropdown-item">
