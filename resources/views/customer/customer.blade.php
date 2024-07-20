@@ -27,17 +27,27 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-md-3">
-                    <input type="text" class="form-control" id="search" placeholder="Search">
+                        <input type="text" class="form-control" id="search" placeholder="Search">
                     </div>
                     <div class="col-md-3">
-                    <input class="btn btn-primary" type="submit" value="Submit">
+                        <input class="btn btn-primary" type="submit" value="Submit">
                     </div>
                     <div class="col-md-6 text-end">
-                    <a class="btn btn-primary" href="{{ route('customer.tambah') }}" role="button">Tambah Data Customer</a>
+                        <a class="btn btn-primary" href="{{ route('customer.tambah') }}" role="button">Tambah Data Customer</a>
                     </div>
                 </div>
             </div>
             <div class="card-body">
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+                @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
                 <table class="table table-striped table-hover" id="table1">
                     <thead class="fs-4">
                         <tr class="text-center">
@@ -54,7 +64,12 @@
                                 <td>{{ $customer->name }}</td>
                                 <td>{{ $customer->email }}</td>
                                 <td>
-                                    <!-- Tambahkan opsi edit dan hapus di sini -->
+                                    <a href="{{ route('customer.edit', $customer->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                    <form action="{{ route('customer.destroy', $customer->id) }}" method="POST" style="display:inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

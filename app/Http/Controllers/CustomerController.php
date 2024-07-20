@@ -36,4 +36,39 @@ class CustomerController extends Controller
 
         return redirect()->route('customer')->with('success', 'Customer berhasil ditambahkan.');
     }
+
+    public function edit($id)
+    {
+        $customer = User::findOrFail($id);
+        return view('customer.edit', compact('customer'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,'.$id,
+        ]);
+
+        $customer = User::findOrFail($id);
+        $customer->name = $request->nama;
+        $customer->email = $request->email;
+        if ($request->password) {
+            $request->validate([
+                'password' => 'string|min:8|confirmed',
+            ]);
+            $customer->password = Hash::make($request->password);
+        }
+        $customer->save();
+
+        return redirect()->route('customer')->with('success', 'Customer berhasil diperbarui.');
+    }
+
+    public function destroy($id)
+    {
+        $customer = User::findOrFail($id);
+        $customer->delete();
+        return redirect()->route('customer')->with('success', 'Customer berhasil dihapus.');
+    }
+
 }

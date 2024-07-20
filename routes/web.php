@@ -25,6 +25,9 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/customer', [CustomerController::class, 'index'])->name('customer')->middleware('admin');
 Route::get('/customer/tambah-data', [CustomerController::class, 'tambah'])->name('customer.tambah')->middleware('admin');
 Route::post('/customer', [CustomerController::class, 'store'])->name('customer.store')->middleware('admin');
+Route::get('/customer/{id}/edit', [CustomerController::class, 'edit'])->name('customer.edit')->middleware('admin');
+Route::post('/customer/{id}', [CustomerController::class, 'update'])->name('customer.update')->middleware('admin');
+Route::delete('/customer/{id}', [CustomerController::class, 'destroy'])->name('customer.destroy')->middleware('admin');
 
 // Voucher
 route::get('/voucher',[VoucherController::class,'index'])->name('voucher');
