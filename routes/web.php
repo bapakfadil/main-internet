@@ -18,6 +18,7 @@ route::get('/login',[LoginController::class,'index'])->name('login');
 route::post('/login',[LoginController::class,'authenticate'])->name('login.authenticate');
 route::get('/register',[RegisterController::class,'index'])->name('register');
 route::post('/register',[RegisterController::class,'store'])->name('register.store');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Menu customer
 route::get('/customer',[CustomerController::class,'index'])->name('customer');
