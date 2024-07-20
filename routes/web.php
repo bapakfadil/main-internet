@@ -29,3 +29,4 @@ route::get('/customer/tambah-data',[CustomerController::class,'tambah'])->name('
 route::get('/voucher',[VoucherController::class,'index'])->name('voucher');
 
 Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions.index');
+Route::post('/transactions', [TransactionController::class, 'store'])->name('transactions.store');
