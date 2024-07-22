@@ -33,15 +33,15 @@
                 </a>
             </li>
             <li class="pc-item">
-                <a href="{{ route('reports.index') }}" class="pc-link">
+                <a href="{{ route('admin.transactions.index') }}" class="pc-link">
                     <span class="pc-micon"><i class="ti ti-receipt"></i></span>
-                    <span class="pc-mtext">Laporan Penjualan</span>
+                    <span class="pc-mtext">Transaksi Pending</span>
                 </a>
             </li>
             <li class="pc-item">
-                <a href="{{ route('admin.transactions.index') }}" class="pc-link">
+                <a href="{{ route('reports.index') }}" class="pc-link">
                     <span class="pc-micon"><i class="ti ti-receipt"></i></span>
-                    <span class="pc-mtext">Pending Transaksi</span>
+                    <span class="pc-mtext">Laporan Penjualan</span>
                 </a>
             </li>
             <li class="pc-item">
