@@ -7,6 +7,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\VoucherController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\ReportController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -37,3 +38,9 @@ Route::post('/transactions', [TransactionController::class, 'store'])->name('tra
 Route::get('/admin/transactions', [TransactionController::class, 'adminIndex'])->name('admin.transactions.index');
 Route::post('/admin/transactions/{transaction}/confirm', [TransactionController::class, 'confirm'])->name('admin.transactions.confirm');
 Route::post('/admin/transactions/{transaction}/reject', [TransactionController::class, 'reject'])->name('admin.transactions.reject');
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
+    Route::post('/reports/generate', [ReportController::class, 'generate'])->name('reports.generate');
+});
+

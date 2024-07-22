@@ -17,25 +17,45 @@
             <span class="pc-mtext">Dashboard</span>
           </a>
         </li>
-        <li class="pc-item">
-          <a href="{{ route('transactions.index') }}" class="pc-link">
-            <span class="pc-micon"><i class="ti ti-receipt"></i></span>
-            <span class="pc-mtext">Riwayat Pembelian</span>
-          </a>
-        </li>
+        @if (Auth::user()->role == 'customer')
+            <li class="pc-item">
+                <a href="{{ route('transactions.index') }}" class="pc-link">
+                    <span class="pc-micon"><i class="ti ti-receipt"></i></span>
+                    <span class="pc-mtext">Riwayat Pembelian</span>
+                </a>
+            </li>
+        @endif
         @if (Auth::user() && Auth::user()->role == 'admin')
-          <li class="pc-item">
-            <a href="{{ route('customer') }}" class="pc-link">
-              <span class="pc-micon"><i class="ti ti-users"></i></span>
-              <span class="pc-mtext">Data Customer</span>
-            </a>
-          </li>
-          <li class="pc-item">
-            <a href="{{ route('customer.tambah') }}" class="pc-link">
-              <span class="pc-micon"><i class="ti ti-user-plus"></i></span>
-              <span class="pc-mtext">Form Pendaftaran</span>
-            </a>
-          </li>
+            <li class="pc-item">
+                <a href="{{ route('transactions.index') }}" class="pc-link">
+                    <span class="pc-micon"><i class="ti ti-receipt"></i></span>
+                    <span class="pc-mtext">Buat Voucher</span>
+                </a>
+            </li>
+            <li class="pc-item">
+                <a href="{{ route('reports.index') }}" class="pc-link">
+                    <span class="pc-micon"><i class="ti ti-receipt"></i></span>
+                    <span class="pc-mtext">Laporan Penjualan</span>
+                </a>
+            </li>
+            <li class="pc-item">
+                <a href="{{ route('admin.transactions.index') }}" class="pc-link">
+                    <span class="pc-micon"><i class="ti ti-receipt"></i></span>
+                    <span class="pc-mtext">Pending Transaksi</span>
+                </a>
+            </li>
+            <li class="pc-item">
+                <a href="{{ route('customer') }}" class="pc-link">
+                    <span class="pc-micon"><i class="ti ti-users"></i></span>
+                    <span class="pc-mtext">Data Customer</span>
+                </a>
+            </li>
+            <li class="pc-item">
+                <a href="{{ route('customer.tambah') }}" class="pc-link">
+                    <span class="pc-micon"><i class="ti ti-user-plus"></i></span>
+                    <span class="pc-mtext">Form Pendaftaran</span>
+                </a>
+            </li>
         @endif
       </ul>
     </div>
