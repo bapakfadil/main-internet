@@ -26,14 +26,16 @@
           <div class="card">
             <div class="card-header">
                 <div class="row">
-                    <div class="col-md-3">
-                        <input type="text" class="form-control" id="search" placeholder="Search">
+                    <div class="col-md-9">
+                      <form action="{{ route('customer') }}" method="GET" class="d-flex">
+                        <div class="mx-md-3">
+                            <input type="text" class="form-control me-2" name="search" placeholder="Search" value="{{ $search }}">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </form>
                     </div>
-                    <div class="col-md-3">
-                        <input class="btn btn-primary" type="submit" value="Submit">
-                    </div>
-                    <div class="col-md-6 text-end">
-                        <a class="btn btn-primary" href="{{ route('customer.tambah') }}" role="button">Tambah Data Customer</a>
+                    <div class="col-md-3 text-end">
+                      <a class="btn btn-primary" href="{{ route('customer.tambah') }}" role="button">Tambah Data Customer</a>
                     </div>
                 </div>
             </div>
